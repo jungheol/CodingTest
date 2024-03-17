@@ -2,10 +2,8 @@ import java.util.*;
 
 class Solution {
     public String[] solution(String myStr) {
-        String reA = myStr.replace("a", " ");
-        String reB = reA.replace("b", " ");
-        String reC = reB.replace("c", " ");
-        String[] split = reC.split(" ");
+        String reA = myStr.replaceAll("[abc]", " ");
+        String[] split = reA.split(" ");
         ArrayList<String> list = new ArrayList<>();
         
         for (String str : split) {
