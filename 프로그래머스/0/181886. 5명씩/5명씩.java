@@ -1,10 +1,12 @@
+import java.util.*;
+
 class Solution {
-    public String[] solution(String[] names) {
-        String[] answer = new String[(int) Math.ceil(names.length / 5.0)];
+    public ArrayList<String> solution(String[] names) {
+        ArrayList<String> list = new ArrayList<>();
         
         for (int i = 0; i < names.length; i += 5) {
-            answer[i / 5] = names[i];
+            if(i % 5 == 0) list.add(names[i]);
         }
-        return answer;
+        return list;
     }
 }
