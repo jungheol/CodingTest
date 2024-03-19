@@ -9,9 +9,6 @@ class Solution {
             else even += num_list[i];
         }
         
-        if(odd > even) answer = odd;
-        else if (odd < even) answer = even;
-        else answer = odd;
-        return answer;
+        return odd > even ? odd : even;
     }
 }
