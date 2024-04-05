@@ -4,12 +4,8 @@ class Solution {
         for(int i = 0; i < quiz.length; i++) {
             String[] tmp = quiz[i].split(" ");
 
-            int a = Integer.parseInt(tmp[0]);
-            int b = Integer.parseInt(tmp[2]);
-            int c = Integer.parseInt(tmp[4]);
-
-            if(tmp[1].equals("+")) answer[i] = (a + b == c) ? "O" : "X";
-            else if (tmp[1].equals("-")) answer[i] = (a - b == c) ? "O" : "X";
+            int result = Integer.parseInt(tmp[0]) + Integer.parseInt(tmp[2]) * (tmp[1].equals("+") ? 1 : -1);
+            answer[i] = result == Integer.parseInt(tmp[4]) ? "O" : "X";
         }
         
         return answer;
