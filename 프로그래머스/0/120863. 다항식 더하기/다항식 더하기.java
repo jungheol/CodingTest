@@ -16,14 +16,9 @@ class Solution {
             }
         }
                 
-        if(num == 0) {
-            if(strNum == 0) return "";
-            else if(strNum == 1) return "x";
-            else return strNum + "x";
-        } else {
-            if(strNum == 0) return String.valueOf(num);
-            else if(strNum == 1) return "x + " + num;
-            else return strNum + "x + " + num;
-        }
+        if(strNum == 0 && num == 0) return "";
+        else if(strNum == 0) return String.valueOf(num);
+        else if(strNum == 1) return num == 0 ? "x" :"x + " + num;
+        else return num != 0 ? strNum + "x + " + num : strNum + "x";
     }
 }
