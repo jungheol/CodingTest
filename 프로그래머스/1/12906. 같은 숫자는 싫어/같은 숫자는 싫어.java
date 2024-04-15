@@ -1,14 +1,12 @@
 import java.util.*;
 
 public class Solution {
-    public ArrayList<Integer> solution(int []arr) {
-        ArrayList<Integer> list = new ArrayList<>();
-        list.add(arr[0]);
-        for (int i = 0; i < arr.length-1; i++) {
-            if(arr[i] != arr[i+1]) {
-                list.add(arr[i+1]);
-            }
+    public Object[] solution(int []arr) {
+        Stack st = new Stack();
+        for(int i=0; i<arr.length; i++) {
+            if(st.isEmpty() || (int)st.peek() != arr[i])
+                st.push(arr[i]);
         }
-        return list;
+        return st.toArray();
     }
 }
