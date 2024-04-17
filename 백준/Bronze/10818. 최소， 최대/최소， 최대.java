@@ -12,11 +12,11 @@ public class Main {
         for (int i = 0; i < num.length; i++) {
             num[i] = Integer.parseInt(st.nextToken());
         }
-        int min = num[0];
-        int max = num[0];
-        for (int i = 1; i < num.length; i++) {
-            if(min > num[i]) min = num[i];
-            if(max < num[i]) max = num[i];
+        int min = 1000001;
+        int max = -1000001;
+        for (int i = 0; i < num.length; i++) {
+            min = Math.min(min, num[i]);
+            max = Math.max(max, num[i]);
         }
         System.out.println(min + " " + max);
     }
