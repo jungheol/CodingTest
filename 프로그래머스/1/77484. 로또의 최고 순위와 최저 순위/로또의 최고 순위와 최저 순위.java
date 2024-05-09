@@ -4,20 +4,24 @@ class Solution {
     public int[] solution(int[] lottos, int[] win_nums) {
         int countZero = 0;
         int count = 0;
-        for (int i = 0; i < lottos.length; i++) {
-            if(lottos[i] == 0) countZero++;
-        }
-        Arrays.sort(lottos);
-        for (int i = countZero; i < win_nums.length; i++) {
-            for (int j = 0; j < win_nums.length; j++) {
-                if(lottos[i] == win_nums[j]) count++;
+        ArrayList<Integer> list = new ArrayList<>();
+        for (int lotto : lottos) {
+            if(lotto == 0) {
+                countZero++;
+                continue;
             }
+            list.add(lotto);
         }
-
-        int[] answer = new int[2];
-        answer[0] = count+countZero == 6 ? 1 : count+countZero == 5 ? 2 : count+countZero == 4 ? 3 : count+countZero == 3 ? 4 : count+countZero == 2 ? 5 : 6;
-        answer[1] = count == 6 ? 1 : count == 5 ? 2 : count == 4 ? 3 : count == 3 ? 4 : count == 2 ? 5 : 6;
         
-        return answer;
+        for (int winNum : win_nums) {
+            if(list.contains(winNum)) count++;
+        }
+        
+        int maxRank = 7 - (count + countZero);
+        int minRank = 7 - (count);
+        if(maxRank > 6) maxRank = 6;
+        if(minRank > 6) minRank = 6;
+        
+        return new int[] {maxRank, minRank};
     }
 }
